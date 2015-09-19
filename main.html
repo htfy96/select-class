@@ -7,7 +7,7 @@
                 <meta name="keywords" content="">
                 <meta name="viewport"
                 content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-                <title>Hello Amaze UI</title>
+                <title>IEEE Class 选课指南</title>
 
                 <!-- Set render engine for 360 browser -->
                 <meta name="renderer" content="webkit">
@@ -64,7 +64,17 @@
                 <button type="button" class="am-btn am-btn-secondary">离散数学(A类)</button>
                 <button type="button" class="am-btn am-btn-secondary">概率论与随机过程</button>
 
-                <h2> 以下电工导三选二 </h2>
+                <h3> 实验课 </h3>
+                <button type="button" class="am-btn am-btn-secondary">大学物理实验(1)</button>
+                <button type="button" class="am-btn am-btn-secondary">大学物理实验(2)</button>
+                <button type="button" class="am-btn am-btn-secondary">编程综合实践</button>
+                <button type="button" class="am-btn am-btn-secondary">实验室实践</button>
+                <button type="button" class="am-btn am-btn-secondary">专业综合实践</button>
+                <button type="button" class="am-btn am-btn-secondary">军训</button>
+                <button type="button" class="am-btn am-btn-secondary">毕业设计(论文)</button>
+
+
+                <h3> 以下电工导三选二 </h3>
                 <button type="button" class="am-btn am-btn-secondary">电类工程导论(A类)</button>
                 <button type="button" class="am-btn am-btn-secondary">电类工程导论(B类)</button>
                 <button type="button" class="am-btn am-btn-secondary">电类工程导论(C类)</button>
@@ -92,45 +102,18 @@
                                         </dl>
                                 </blockquote>
 
-                                <h4>当前选修课程列表</h4>
-                                <dl>
-                                        <dt> 第1学期 </dt>
-                                        <dd>
-                                                <ul id="semester1">
-                                                </ul>
-                                        </dd>
-                                        <dt> 第2学期 </dt>
-                                        <dd>
-                                                <ul id="semester2">
-                                                </ul>
-                                        </dd>
-                                        <dt> 第3学期 </dt>
-                                        <dd>
-                                                <ul id="semester3">
-                                                </ul>
-                                        </dd>
-                                        <dt> 第4学期 </dt>
-                                        <dd>
-                                                <ul id="semester4">
-                                                </ul>
-                                        </dd>
-                                        <dt> 第5学期 </dt>
-                                        <dd>
-                                                <ul id="semester5">
-                                                </ul>
-                                        </dd>
-                                        <dt> 第6学期 </dt>
-                                        <dd>
-                                                <ul id="semester6">
-                                                </ul>
-                                        </dd>
-                                        <dt> 第7学期 </dt>
-                                        <dd>
-                                                <ul id="semester7">
-                                                </ul>
-                                        </dd>
-                                </dl>
-                                <p> 当前选修总学分：<span id="creditSum">0</span> </p>
+                                <div data-am-sticky="{top : 50}">
+                                        <h4>当前选修课程列表</h4>
+                                        <dl id="selectedClassList">
+                                                {{#each semester}}
+                                                <dt> 第{{this}}学期 </dt>
+                                                <dd>
+                                                        <ul id="semester{{this}}"> </ul>
+                                                </dd>
+                                                {{/each}}
+                                        </dl>
+                                        <p> 当前选修总学分：<span id="creditSum">0</span> </p>
+                                </div>
 
 
 
@@ -139,309 +122,177 @@
                         <div class="am-u-sm-8" id="optionalClass">
                                 <h3> 选修课列表 </h3>
 
-                                <div class="am-panel-group" id="optionalClassContainer">
+                                <div class="am-panel-group" id="newOptionalClassContainer" style="display: none">
+                                        {{#each optionalClassType}}
                                         <div class="am-panel am-panel-default">
                                                 <div class="am-panel-hd">
-                                                        <h4 class="am-panel-title" data-am-collapse="{ target: '#lyjcxxk'}">领域基础限选课 </h4>
+                                                        <h4 class="am-panel-title" data-am-collapse="{ target: '#{{@key}}'}">{{this.name}} </h4>
                                                 </div>
-                                                <div id="lyjcxxk" class="am-panel-collapse am-in">
+                                                <div id="{{@key}}" class="am-panel-collapse am-in">
                                                         <div class="am-panel-bd">
+                                                                {{#if this.description}}
                                                                 <blockquote>
-                                                                        主修模式至少选4门，副修模式至少5门。
-                                                                        点击下面的课程会自动选中这些课程，所以<mark> 一般不需要手动点选 </mark>
+                                                                        {{{this.description}}}
                                                                 </blockquote>
-                                                                <button id="dlydzx" type="button" class="am-btn am-btn-default" data-am-button>电路与电子学(5@3)</button>
-                                                                <button id="dcnl" type="button" class="am-btn am-btn-default" data-am-button>电磁能量(4@4)</button>
-                                                                <button id="xhyxt" type="button" class="am-btn am-btn-default" data-am-button>信号与系统（含复变函数）(4@4)</button>
-                                                                <button id="jsjzc" type="button" class="am-btn am-btn-default" data-am-button>计算机组成(4@4)</button>
-                                                                <button id="rjgc" type="button" class="am-btn am-btn-default" data-am-button>软件工程(4@4)</button>
-                                                                <button id="sjjg" type="button" class="am-btn am-btn-default" data-am-button>数据结构(4@4)</button>
-                                                        </div>
-                                                </div>
-                                        </div>
+                                                                {{/if}}
 
-                                        <div class="am-panel am-panel-default">
-                                                <div class="am-panel-hd">
-                                                        <h4 class="am-panel-title" data-am-collapse="{target: '#xkjcxxk'}">学科基础限选课 </h4>
-                                                </div>
-                                                <div id="xkjcxxk" class="am-panel-collapse am-in">
-                                                        <div class="am-panel-bd">
-                                                                <blockquote>
-                                                                        主修模式至少3门，副修模式至少4门。
-                                                                        这些课程依赖于上面的领域基础限选课，被下面的专业方向课程所依赖，因此<mark> 一般也不需要自己选择 </mark>。
-                                                                </blockquote>
-                                                                <button id="txyl" type="button" class="am-btn am-btn-default" data-am-button>通信原理(4@5)</button>
-                                                                <button id="dcxyy" type="button" class="am-btn am-btn-default" data-am-button>电磁学应用(4@5)</button>
-                                                                <button id="jsjxtgc" type="button" class="am-btn am-btn-default" data-am-button>计算机系统工程(4@5)</button>
-                                                                <button id="rgzn" type="button" class="am-btn am-btn-default" data-am-button>人工智能(4@5)</button>
-                                                                <button id="sfsjyfx" type="button" class="am-btn am-btn-default" data-am-button>算法设计与分析(4@5)</button>
-                                                                <button id="kzll" type="button" class="am-btn am-btn-default" alt="IEEE电气方向必修，其他方向学生选修" data-am-button>控制理论(4@5)</button>
-                                                                <button id="dlxtjc" type="button" class="am-btn am-btn-default" data-am-button>电力系统基础(4@5)</button>
-                                                                <button id="dldzjs" type="button" class="am-btn am-btn-default" data-am-button>电力电子技术(4@5)</button>
-                                                                <button id="txylb" type="button" class="am-btn am-btn-default" data-am-button>通信原理(B类)(2@7)</button>
-                                                        </div>
-                                                </div>
-                                                <div class="am-panel am-panel-default">
-                                                        <div class="am-panel-hd">
-                                                                <h4 class="am-panel-title" data-am-collapse="{target: '#zyk'}">专业课 </h4>
-                                                        </div>
-                                                        <div id="zyk" class="am-panel-collapse am-collapse am-in">
-                                                                <div class="am-panel-bd">
+                                                                {{#if this.simpleClass}}
+                                                                {{#each this.simpleClass}}
 
-                                                                        <div class="am-panel-group" id="accordion">
-                                                                                <div class="am-panel am-panel-default">
-                                                                                        <div class="am-panel-hd">
-                                                                                                <h5 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#dq'}">
-                                                                                                        电气工程与自动化
-                                                                                                </h5>
-                                                                                        </div>
-                                                                                        <div id="dq" class="am-panel-collapse am-collapse am-in">
-                                                                                                <div class="am-panel-bd">
-                                                                                                        <blockquote>
-                                                                                                                本专业原有的3个方向已经合并，因此选择本专业并完成下列要求视作同时完成了3个方向
-                                                                                                        </blockquote>
+                                                                {{#if this.alt}}
+                                                                <button id="{{@key}}" type="button" class="am-btn am-btn-default" alt="{{this.alt}}" data-am-button >
+                                                                        {{this.name}}
+                                                                </button>
+                                                                {{else}}
+                                                                <button id="{{@key}}" type="button" class="am-btn am-btn-default" data-am-button >
+                                                                        {{this}}
+                                                                </button>
+                                                                {{/if}}
+                                                                {{/each}}
+                                                                {{/if}}
 
-                                                                                                        <h5>以下课程必修</h5>
-                                                                                                        <button id="gdygc" type="button" class="am-btn am-btn-default" data-am-button>高电压工程(4@6)</button>
-                                                                                                        <button id="zndw" type="button" class="am-btn am-btn-default" alt="电力系统基础、高电压工程、电力电子技术（至少修读过1门）" data-am-button>智能电网(4@7)</button>
-                                                                                                        <h5>以下课程任选7~8学分</h5>
 
-                                                                                                        <button id="dlxtzdh" type="button" class="am-btn am-btn-default" data-am-button>电力系统自动化(3@6)</button>
-                                                                                                        <button id="dlxtjdbh" type="button" class="am-btn am-btn-default" data-am-button>电力系统继电保护(3@6)</button>
-                                                                                                        <button id="dlxtztfx" type="button" class="am-btn am-btn-default" data-am-button>电力系统暂态分析(2@6)</button>
-                                                                                                        <button id="szxhclb" type="button" class="am-btn am-btn-default" data-am-button>数字信号处理(B类)(2@5)</button>
-                                                                                                        <button id="dqydzcljs" type="button" class="am-btn am-btn-default" data-am-button>电气与电子测量技术(2@6)</button>
-                                                                                                        <button id="djx" type="button" class="am-btn am-btn-default" data-am-button>电机学(4@5)</button>
-                                                                                                        <button id="djkzjs" type="button" class="am-btn am-btn-default" data-am-button>电机控制技术(3@6)</button>
+                                                                {{#if this.school}}
+                                                                <div class="am-panel-group" id="accordion">
+                                                                        {{#each this.school}}
+                                                                        <div class="am-panel am-panel-default">
+                                                                                <div class="am-panel-hd">
+                                                                                        <h5 class="am-panel-title" data-am-collapse="{target: '#{{@key}}'}">
+                                                                                                {{this.name}}
+                                                                                        </h5>
+                                                                                </div>
+                                                                                <div id="{{@key}}" class="am-panel-collapse am-collapse am-in">
+                                                                                        <div class="am-panel-bd">
+                                                                                                {{#if this.description}}
+                                                                                                <blockquote>
+                                                                                                        {{{this.description}}}
+                                                                                                </blockquote>
+                                                                                                {{/if}}
 
-                                                                                                        <h5> 以下综合实验三选一 </h5>
+                                                                                                {{#each this.clusteredClass}}
 
-                                                                                                        <div class="am-btn-group doc-js-btn-2" data-am-button>
-                                                                                                                <label class="am-btn am-btn-default" id="dqxtzhsy">
-                                                                                                                        <input type="radio" name="options" value="电器系统综合实验" id="option1"> 电器系统综合实验(2@7)
-                                                                                                                </label>
-                                                                                                                <label class="am-btn am-btn-default" id="dqsbzhsy">
-                                                                                                                        <input type="radio" name="options" value="电气设备综合实验" id="option2"> 电气设备综合实验(2@7)
-                                                                                                                </label>
-                                                                                                                <label class="am-btn am-btn-default" id="dqcdzhsy">
-                                                                                                                        <input type="radio" name="options" value="电气传动综合实验" id="option3"> 电气传动综合实验(2@7)
-                                                                                                                </label>
-                                                                                                        </div>
-
-                                                                                                        <h5> 以下课程设计四选一 </h5>
-                                                                                                        <div class="am-btn-group doc-js-btn-3" data-am-button>
-                                                                                                                <label class="am-btn am-btn-default" id="jdbhkcsj">
-                                                                                                                        <input type="radio" name="options" id="option1"> 继电保护课程设计(2@7)
-                                                                                                                </label>
-                                                                                                                <label class="am-btn am-btn-default" id="bdzdqbfkcsj">
-                                                                                                                        <input type="radio" name="options" id="option2"> 变电站电气部分课程设计(2@7)
-                                                                                                                </label>
-                                                                                                                <label class="am-btn am-btn-default" id="djddspkzkcsj">
-                                                                                                                        <input type="radio" name="options" id="option3"> 电机的DSP控制课程设计(2@7)
-                                                                                                                </label>
-                                                                                                                <label class="am-btn am-btn-default" id="gyszclxtkc">
-                                                                                                                        <input type="radio" name="options" id="option3"> 高压数字测量系统课程(2@7)
-                                                                                                                </label>
-                                                                                                        </div>
-
+                                                                                                {{#if this.special}}
+                                                                                                <h5> {{this.name}} <a href="javascript:;"><small onclick="removeSelect('{{@key}}')" > 清除内容 </small></a></h5> 
+                                                                                                <div class="am-btn-group doc-js-btn-2" data-am-button id="{{@key}}">
+                                                                                                        {{#each this.lesson}}
+                                                                                                        <label class="am-btn am-btn-default" id="{{@key}}">
+                                                                                                                <input type="radio" name="options" id="option1"> {{this}}                                                                                                        </label>
+                                                                                                        {{/each}}
                                                                                                 </div>
+                                                                                                {{else}}
+                                                                                                <h5>{{this.name}}</h5>
+                                                                                                {{#each this.lesson}}
+
+                                                                                                {{#if this.alt}}
+                                                                                                <button id="{{@key}}" type="button" class="am-btn am-btn-default" alt="{{this.alt}}" data-am-button >
+                                                                                                        {{this.name}}
+                                                                                                </button>
+                                                                                                {{else}}
+                                                                                                <button id="{{@key}}" type="button" class="am-btn am-btn-default" data-am-button >
+                                                                                                        {{this}}
+                                                                                                </button>
+                                                                                                {{/if}}
+                                                                                                {{/each}} <!-- for lesson -->
+
+                                                                                                {{/if}}
+                                                                                                {{/each}} <!-- for clusteredClass -->
+
+                                                                                                {{#if this.major}}
+                                                                                                {{#each this.major}}
+                                                                                                <h5> {{this.name}} </h5>
+                                                                                                {{#if this.description}}
+                                                                                                <blockquote>
+                                                                                                        {{{this.description}}}
+                                                                                                </blockquote>
+                                                                                                {{/if}}
+                                                                                                {{#each this.clusteredClass}}
+
+                                                                                                {{#if this.special}}
+                                                                                                <h5> {{this.name}} <a href="javascript:;"><small onclick="removeSelect('{{@key}}')" > 清除内容 </small></a></h5> 
+                                                                                                <div class="am-btn-group doc-js-btn-2" data-am-button id="{{@key}}">
+                                                                                                        {{#each this.lesson}}
+                                                                                                        <label class="am-btn am-btn-default" id="{{@key}}">
+                                                                                                                <input type="radio" name="options" id="option1"> {{this}}                                                                                                        </label>
+                                                                                                        {{/each}}
+                                                                                                </div>
+                                                                                                {{else}}
+                                                                                                <h5>{{this.name}}</h5>
+                                                                                                {{#each this.lesson}}
+
+                                                                                                {{#if this.alt}}
+                                                                                                <button id="{{@key}}" type="button" class="am-btn am-btn-default" alt="{{this.alt}}" data-am-button >
+                                                                                                        {{this.name}}
+                                                                                                </button>
+                                                                                                {{else}}
+                                                                                                <button id="{{@key}}" type="button" class="am-btn am-btn-default" data-am-button >
+                                                                                                        {{this}}
+                                                                                                </button>
+                                                                                                {{/if}}
+                                                                                                {{/each}} <!-- for lesson -->
+
+                                                                                                {{/if}}
+                                                                                                {{/each}} <!-- for clusteredClass -->
+                                                                                                <hr />
+                                                                                                {{/each}} <!-- for major -->
+                                                                                                {{/if}} <!-- for major -->
                                                                                         </div>
                                                                                 </div>
-
                                                                         </div>
+                                                                        {{/each}} <!-- for school -->
+                                                                        {{/if}}
                                                                 </div>
+
                                                         </div>
                                                 </div>
-
-
-
                                         </div>
+                                        {{/each}}
                                 </div>
 
-                                <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal">
-                                        <div class="am-modal-dialog">
-                                                <div class="am-modal-hd">选择先修课
-                                                        <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
-                                                </div>
-                                                <div class="am-modal-bd">
-                                                        你选择的<ins>智能电网</ins>这门课程需要至少修读 <ins>电力系统基础</ins>、<ins>高电压工程</ins>、<ins>电力电子技术</ins>中的一门，请选择你要修哪个呢？
+                        </div>
+                </div>
 
-                                                        <div class="am-btn-group" data-am-button>
-                                                                <label class="am-btn am-btn-default" id="dlxtjc-select">
-                                                                        <input type="checkbox" name="doc-js-btn" > 电力系统基础(4@5) </input>
-                                                                </label>
-                                                                <label class="am-btn am-btn-default" id="gdygc-select">
-                                                                        <input type="checkbox" name="doc-js-btn" > 高电压工程(4@6) </input>
-                                                                </label>
-                                                                <label class="am-btn am-btn-default" id="dldzjs-select">
-                                                                        <input type="checkbox" name="doc-js-btn" > 电力电子技术(4@5) </input>
-                                                                </label>
-                                                        </div>
-
-                                                        <button type="button" class="am-btn am-btn-primary am-btn-block" id="select-complete">完成</button>
-                                                </div>
-                                        </div>
+                <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal">
+                        <div class="am-modal-dialog">
+                                <div class="am-modal-hd">选择先修课
+                                        <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
                                 </div>
+                                <div class="am-modal-bd">
+                                        你选择的<ins>智能电网</ins>这门课程需要至少修读 <ins>电力系统基础</ins>、<ins>高电压工程</ins>、<ins>电力电子技术</ins>中的一门，请选择你要修哪个呢？
 
-                                <!--[if (gte IE 9)|!(IE)]><!-->
-                                <script src="http://cdn.amazeui.org/amazeui/2.4.2/js/jquery.min.js"></script>
-                                <!--<![endif]-->
-                                <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
-                                <!--[if lte IE 8 ]>
-                                <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
-                                <script src="assets/js/amazeui.ie8polyfill.min.js"></script>
-                                <![endif]-->
-                                <script src="http://cdn.amazeui.org/amazeui/2.4.2/js/amazeui.min.js"></script>
+                                        <div class="am-btn-group" data-am-button>
+                                                <label class="am-btn am-btn-default" id="dlxtjc-select">
+                                                        <input type="checkbox" name="doc-js-btn" > 电力系统基础(4@5) </input>
+                                                </label>
+                                                <label class="am-btn am-btn-default" id="gdygc-select">
+                                                        <input type="checkbox" name="doc-js-btn" > 高电压工程(4@6) </input>
+                                                </label>
+                                                <label class="am-btn am-btn-default" id="dldzjs-select">
+                                                        <input type="checkbox" name="doc-js-btn" > 电力电子技术(4@5) </input>
+                                                </label>
+                                        </div>
 
-                                <script type="text/javascript">
-                                        var relation = {
-                                                "dlydzx" : [],
-                                                "dcnl" : [],
-                                                "xhyxt": [],
-                                                "jsjzc" : [],
-                                                "rjgc" : [],
-                                                "sjjg" : [],
-                                                "txyl" : ["xhyxt"],
-                                                "dcxyy" : ["dcnl"],
-                                                "jsjxtgc" : ["jsjzc", "rjgc"],
-                                                "rgzn" : ["rjgc"],
-                                                "sfsjyfx" : ["sjjg"],
-                                                "kzll" : ["dlydzx", "xhyxt"],
-                                                "dlxtjc" : ["dlydzx"],
-                                                "dldzjs" : ["dlydzx"],
-                                                "txylb" : ["xhyxt"],
-                                                "gdygc" : ["dlydzx", "dcnl"],
-                                                "zndw" : []
-                                        };
+                                        <button type="button" class="am-btn am-btn-primary am-btn-block" id="select-complete">完成</button>
+                                </div>
+                        </div>
+                </div>
+                <div data-am-widget="gotop" class="am-gotop am-gotop-fixed" >
+                        <a href="#top" title="回到顶部">
+                                <span class="am-gotop-title">回到顶部</span>
+                                <i class="am-gotop-icon am-icon-chevron-up"></i>
+                        </a>
+                </div>
 
-                                        function selected(lessonId) 
-                                        {
-                                                return $('#'+lessonId).hasClass('am-active');
-                                        }
-
-                                        $(document).ready( function() {
-                                                for (var i in relation) {
-                                                        $("#"+i).on('click', function(i) {
-                                                                return function() { afterSelect(i); }
-                                                        }(i));
-
-                                                        $("#"+i).on('mouseover', function(i) {
-                                                                return function() { highLightRelatedLesson(i); }
-                                                        }(i) );
-
-                                                        $("#"+i).on('mouseout', function(i) {
-                                                                return function() { restoreRelatedLesson(i); }
-                                                        }(i) );
-                                                }
-
-                                                $("#zndw").on('click', specialCaseForZndw);
-                                                $('#select-complete').on('click', function() {
-                                                        var l=["dlxtjc", "gdygc", "dldzjs"];
-                                                        if (!selected('dlxtjc-select') && !selected('gdygc-select') && !selected('dldzjs-select'))
-                                                                alert('你还一门都没选呢');
-                                                        else
-                                                                {
-                                                                        for (var i in l)
-                                                                                if (selected(l[i]+'-select')) {
-                                                                                        $('#'+l[i]).click();
-                                                                                        console.log(l[i]);
-                                                                                }
-                                                                                $('#doc-modal').modal('close');
-                                                                }
-                                                });
-                                        });
-
-                                        function specialCaseForZndw(e)
-                                        {
-                                                if (!selected('zndw') && !selected('dlxtjc') && !selected('gdygc') && !selected('dldzjs')) {
-                                                        var l=["dlxtjc", "gdygc", "dldzjs"];
-                                                        for (var i in l)
-                                                                $('#'+l[i]+'-select').removeClass('am-active');
-                                                        $('#doc-modal').modal('open');
-                                                        
-                                                }
-                                        }
-
-
-                                        function afterSelect(lessonId)
-                                        {
-
-                                                if (!$("#"+lessonId).hasClass("am-active")) {
-                                                        var c = relation[lessonId];
-                                                        console.log(c);
-                                                        if (c)
-                                                                for (var item in c)
-                                                                        {
-                                                                                console.log(c[item]);
-                                                                                if (! $("#"+c[item]).hasClass('am-active'))
-                                                                                        $("#"+c[item]).click();
-                                                                                afterSelect(c[item]);
-                                                                        }
-                                                }
-                                        }
-
-                                        function highLightRelatedLesson(lessonId, updateInfo = true)
-                                        {
-                                                var str = "当前选中课程: "+$("#"+lessonId).text() + "  其依赖以下课程：";
-                                                var c= relation[lessonId];
-                                                if (c)
-                                                        for (var i in c) {
-                                                                newId = c[i];
-                                                                str += $("#"+newId).text() + " ";
-                                                                $("#"+newId).removeClass("am-btn-default");
-                                                                $("#"+newId).addClass("am-btn-success");
-                                                                highLightRelatedLesson(newId, false);
-                                                        }
-                                                        str += "." + ($("#"+lessonId).attr('alt') ? "其他信息："+ $("#"+lessonId).attr('alt') : "");
-                                                        if (updateInfo)
-                                                                $("#info").text(str);
-                                        }
-
-                                        function restoreRelatedLesson(lessonId)
-                                        {
-                                                var c= relation[lessonId];
-                                                if (c)
-                                                        for (var i in c) {
-                                                                newId = c[i];
-                                                                $("#"+newId).removeClass("am-btn-success");
-                                                                $("#"+newId).addClass("am-btn-default");
-                                                                restoreRelatedLesson(newId);
-                                                        }
-                                        }
-
-                                        function getCredit(lessonId)
-                                        {
-                                                var obj = $("#"+lessonId).text();
-                                                return parseInt(/\d(?=@)/.exec(obj)[0]);
-                                        }
-
-                                        function getSemester(lessonId)
-                                        {
-                                                var obj = $("#"+lessonId).text();
-                                                return parseInt(/\d/.exec( /@\d/.exec(obj)[0] ));
-                                        }
-
-                                        function updateSelectedInfo()
-                                        {
-                                                var sum = 0;
-                                                for (var i=0; i<8; i++)
-                                                $("#semester"+i).empty();
-                                                for (var i in relation) 
-                                                        if ($("#"+i).hasClass('am-active')) {
-                                                                sum += getCredit(i);
-                                                                $("#semester"+getSemester(i)).append('<li>'+$("#"+i).text()+'</li>');
-                                                        }
-                                                        $("#creditSum").text(sum);
-
-
-                                        }
-
-                                        $(document).ready( function() {
-                                                document.addEventListener('click', updateSelectedInfo, false);
-                                        });
-
-
-
-                                </script>
-                        </body>
-                </html>
+                <!--[if (gte IE 9)|!(IE)]><!-->
+                <script src="http://cdn.amazeui.org/amazeui/2.4.2/js/jquery.min.js"></script>
+                <!--<![endif]-->
+                <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+                <!--[if lte IE 8 ]>
+                <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+                <script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+                <![endif]-->
+                <script src="http://cdn.amazeui.org/amazeui/2.4.2/js/amazeui.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.2/handlebars.min.js"></script>
+                <script src="render.js" type="text/javascript"> </script>
+                <script src="control.js" type="text/javascript"> </script>
+        </body>
+</html>
