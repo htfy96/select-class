@@ -1,0 +1,306 @@
+<!doctype html>
+<html class="no-js">
+        <head>
+                <meta charset="utf-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="description" content="">
+                <meta name="keywords" content="">
+                <meta name="viewport"
+                content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+                <title>IEEE Class 选课指南</title>
+
+                <!-- Set render engine for 360 browser -->
+                <meta name="renderer" content="webkit">
+
+                <!-- No Baidu Siteapp-->
+                <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+                <link rel="icon" type="image/png" href="assets/i/favicon.png">
+
+                <!-- Add to homescreen for Chrome on Android -->
+                <meta name="mobile-web-app-capable" content="yes">
+                <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+
+                <!-- Add to homescreen for Safari on iOS -->
+                <meta name="apple-mobile-web-app-capable" content="yes">
+                <meta name="apple-mobile-web-app-status-bar-style" content="black">
+                <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+                <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+
+                <!-- Tile icon for Win8 (144x144 + tile color) -->
+                <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
+                <meta name="msapplication-TileColor" content="#0e90d2">
+
+                <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.4.2/css/amazeui.min.css">
+        </head>
+        <body>
+                <h1> IEEE Class 选课指南 </h1>
+                <h2> 必须修读以下课程</h2>
+                <h3> 公共课程 </h3>
+                <button type="button" class="am-btn am-btn-primary">思想道德修养与法律基础</button>
+                <button type="button" class="am-btn am-btn-primary">中国近现代史纲要</button>
+                <button type="button" class="am-btn am-btn-primary">马克思主义基本原理</button>
+                <button type="button" class="am-btn am-btn-primary">"毛泽东思想和中国特色</button>
+                <button type="button" class="am-btn am-btn-primary">社会主义理论体系概论"</button>
+                <button type="button" class="am-btn am-btn-primary">军事理论</button>
+                <button type="button" class="am-btn am-btn-primary">大学基础英语(1)</button>
+                <button type="button" class="am-btn am-btn-primary">大学基础英语(2)</button>
+                <button type="button" class="am-btn am-btn-primary">大学基础英语(3)或通过水平考</button>
+                <button type="button" class="am-btn am-btn-primary">大学基础英语(4)或通过第二次水平考</button>
+                <button type="button" class="am-btn am-btn-primary">体育(1)</button>
+                <button type="button" class="am-btn am-btn-primary">体育(2)</button>
+                <button type="button" class="am-btn am-btn-primary">体育(3)</button>
+                <button type="button" class="am-btn am-btn-primary">体育(4)</button>
+                <button type="button" class="am-btn am-btn-primary">通识教育实践</button>
+
+                <h3> 专业课  </h3>
+                <button type="button" class="am-btn am-btn-secondary">数学分析(C类)(1)</button>
+                <button type="button" class="am-btn am-btn-secondary">数学分析(C类)(2)</button>
+                <button type="button" class="am-btn am-btn-secondary">线性代数(B类)</button>
+                <button type="button" class="am-btn am-btn-secondary">大学物理(A类)(1)</button>
+                <button type="button" class="am-btn am-btn-secondary">大学物理(A类)(2)</button>
+                <button type="button" class="am-btn am-btn-secondary">计算导论</button>
+                <button type="button" class="am-btn am-btn-secondary">程序设计</button>
+                <button type="button" class="am-btn am-btn-secondary">离散数学(A类)</button>
+                <button type="button" class="am-btn am-btn-secondary">概率论与随机过程</button>
+
+                <h3> 实验课 </h3>
+                <button type="button" class="am-btn am-btn-secondary">大学物理实验(1)</button>
+                <button type="button" class="am-btn am-btn-secondary">大学物理实验(2)</button>
+                <button type="button" class="am-btn am-btn-secondary">编程综合实践</button>
+                <button type="button" class="am-btn am-btn-secondary">实验室实践</button>
+                <button type="button" class="am-btn am-btn-secondary">专业综合实践</button>
+                <button type="button" class="am-btn am-btn-secondary">军训</button>
+                <button type="button" class="am-btn am-btn-secondary">毕业设计(论文)</button>
+
+
+                <h3> 以下电工导三选二 </h3>
+                <button type="button" class="am-btn am-btn-secondary">电类工程导论(A类)</button>
+                <button type="button" class="am-btn am-btn-secondary">电类工程导论(B类)</button>
+                <button type="button" class="am-btn am-btn-secondary">电类工程导论(C类)</button>
+                <hr />
+                <h2> 复杂的选修部分 </h2>
+
+                <div class="am-g">
+                        <div data-am-sticky="{animation: 'slide-top'}">
+                                <button id="info" class="am-btn am-btn-success am-btn-block"> 这里显示当前选修课的情况:D </button>
+                        </div>
+                        <div class="am-u-sm-4">
+                                <h3> 选课指南 </h3>
+                                <blockquote>
+                                        直接点选所需要的专业课，系统会自动选择所有需要的基础课。
+                                        格式：<code>课名(学分@推荐学期)</code>
+                                </blockquote>
+
+                                <h4> 规则 </h4>
+                                <blockquote>
+                                        <dl>
+                                                <dt>主修模式(2+1或3+0) </dt>
+                                                <dd> 主修须完成3个专业方向(至少2个方向属于同一专业，即2+1模式或3+0模式)的课程要求  </dd>
+                                                <dt> 副修模式(2+2或2+1+2) </dt>
+                                                <dd> 副修须完成同一专业（非主修专业）的2个专业方向的课程要求（即2+2模式或2+1+2模式），若有副修，专业方向课程至少须修读24学分。 </dd>
+                                        </dl>
+                                </blockquote>
+
+                                <div data-am-sticky="{top : 50}">
+                                        <h4>当前选修课程列表</h4>
+                                        <dl id="selectedClassList">
+                                                {{#each semester}}
+                                                <dt> 第{{this}}学期 </dt>
+                                                <dd>
+                                                        <ul id="semester{{this}}"> </ul>
+                                                </dd>
+                                                {{/each}}
+                                        </dl>
+                                        <p> 当前选修总学分：<span id="creditSum">0</span> </p>
+                                </div>
+
+
+
+
+                        </div>
+                        <div class="am-u-sm-8" id="optionalClass">
+                                <h3> 选修课列表 </h3>
+
+                                <div class="am-panel-group" id="newOptionalClassContainer" style="display: none">
+                                        {{#each optionalClassType}}
+                                        <div class="am-panel am-panel-default">
+                                                <div class="am-panel-hd">
+                                                        <h4 class="am-panel-title" data-am-collapse="{ target: '#{{@key}}'}">{{this.name}} </h4>
+                                                </div>
+                                                <div id="{{@key}}" class="am-panel-collapse am-in">
+                                                        <div class="am-panel-bd">
+                                                                {{#if this.description}}
+                                                                <blockquote>
+                                                                        {{{this.description}}}
+                                                                </blockquote>
+                                                                {{/if}}
+
+                                                                {{#if this.simpleClass}}
+                                                                {{#each this.simpleClass}}
+
+                                                                {{#if this.alt}}
+                                                                <button id="{{@key}}" type="button" class="am-btn am-btn-default" alt="{{this.alt}}" data-am-button >
+                                                                        {{this.name}}
+                                                                </button>
+                                                                {{else}}
+                                                                <button id="{{@key}}" type="button" class="am-btn am-btn-default" data-am-button >
+                                                                        {{this}}
+                                                                </button>
+                                                                {{/if}}
+                                                                {{/each}}
+                                                                {{/if}}
+
+
+                                                                {{#if this.school}}
+                                                                <div class="am-panel-group" id="accordion">
+                                                                        {{#each this.school}}
+                                                                        <div class="am-panel am-panel-default">
+                                                                                <div class="am-panel-hd">
+                                                                                        <h5 class="am-panel-title" data-am-collapse="{target: '#{{@key}}'}">
+                                                                                                {{this.name}}
+                                                                                        </h5>
+                                                                                </div>
+                                                                                <div id="{{@key}}" class="am-panel-collapse am-collapse">
+                                                                                        <div class="am-panel-bd">
+                                                                                                {{#if this.description}}
+                                                                                                <blockquote>
+                                                                                                        {{{this.description}}}
+                                                                                                </blockquote>
+                                                                                                {{/if}}
+
+                                                                                                {{#each this.clusteredClass}}
+
+                                                                                                {{#if this.special}}
+                                                                                                <h5> {{this.name}} <a href="javascript:;"><small id="{{@key}}-clear" onclick="removeSelect('{{@key}}')" > 清除内容 </small></a></h5> 
+                                                                                                <div class="am-btn-group doc-js-btn-2" data-am-button id="{{@key}}">
+                                                                                                        {{#each this.lesson}}
+                                                                                                        <label class="am-btn am-btn-default" id="{{@key}}">
+                                                                                                                <input type="radio" name="options" id="option1"> {{this}}                                                                                                        </label>
+                                                                                                        {{/each}}
+                                                                                                </div>
+                                                                                                {{else}}
+                                                                                                <h5>{{this.name}}</h5>
+                                                                                                {{#each this.lesson}}
+
+                                                                                                {{#if this.alt}}
+                                                                                                <button id="{{@key}}" type="button" class="am-btn am-btn-default" alt="{{this.alt}}" data-am-button >
+                                                                                                        {{this.name}}
+                                                                                                </button>
+                                                                                                {{else}}
+                                                                                                <button id="{{@key}}" type="button" class="am-btn am-btn-default" data-am-button >
+                                                                                                        {{this}}
+                                                                                                </button>
+                                                                                                {{/if}}
+                                                                                                {{/each}} <!-- for lesson -->
+
+                                                                                                {{/if}}
+                                                                                                {{/each}} <!-- for clusteredClass -->
+
+                                                                                                {{#if this.major}}
+                                                                                                {{#each this.major}}
+                                                                                                <h5> {{this.name}} </h5>
+                                                                                                {{#if this.description}}
+                                                                                                <blockquote>
+                                                                                                        {{{this.description}}}
+                                                                                                </blockquote>
+                                                                                                {{/if}}
+                                                                                                {{#each this.clusteredClass}}
+
+                                                                                                {{#if this.special}}
+                                                                                                <h5> {{this.name}} <a href="javascript:;"><small id="{{@key}}-clear" onclick="removeSelect('{{@key}}')" > 清除内容 </small></a></h5> 
+                                                                                                <div class="am-btn-group doc-js-btn-2" data-am-button id="{{@key}}">
+                                                                                                        {{#each this.lesson}}
+                                                                                                        <label class="am-btn am-btn-default" id="{{@key}}">
+                                                                                                                <input type="radio" name="options" id="option1"> {{this}}                                                                                                        </label>
+                                                                                                        {{/each}}
+                                                                                                </div>
+                                                                                                {{else}}
+                                                                                                <h5>{{this.name}}</h5>
+                                                                                                {{#each this.lesson}}
+
+                                                                                                {{#if this.alt}}
+                                                                                                <button id="{{@key}}" type="button" class="am-btn am-btn-default" alt="{{this.alt}}" data-am-button >
+                                                                                                        {{this.name}}
+                                                                                                </button>
+                                                                                                {{else}}
+                                                                                                <button id="{{@key}}" type="button" class="am-btn am-btn-default" data-am-button >
+                                                                                                        {{this}}
+                                                                                                </button>
+                                                                                                {{/if}}
+                                                                                                {{/each}} <!-- for lesson -->
+
+                                                                                                {{/if}}
+                                                                                                {{/each}} <!-- for clusteredClass -->
+                                                                                                <hr />
+                                                                                                {{/each}} <!-- for major -->
+                                                                                                {{/if}} <!-- for major -->
+                                                                                        </div>
+                                                                                </div>
+                                                                        </div>
+                                                                        {{/each}} <!-- for school -->
+                                                                        {{/if}}
+                                                                </div>
+
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        {{/each}}
+                                </div>
+
+                        </div>
+                </div>
+
+                <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal">
+                        <div class="am-modal-dialog">
+                                <div class="am-modal-hd">选择先修课
+                                        <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+                                </div>
+                                <div class="am-modal-bd">
+                                        你选择的<ins>智能电网</ins>这门课程需要至少修读 <ins>电力系统基础</ins>、<ins>高电压工程</ins>、<ins>电力电子技术</ins>中的一门，请选择你要修哪个呢？
+
+                                        <div class="am-btn-group" data-am-button>
+                                                <label class="am-btn am-btn-default" id="dlxtjc-select">
+                                                        <input type="checkbox" name="doc-js-btn" > 电力系统基础(4@5) </input>
+                                                </label>
+                                                <label class="am-btn am-btn-default" id="gdygc-select">
+                                                        <input type="checkbox" name="doc-js-btn" > 高电压工程(4@6) </input>
+                                                </label>
+                                                <label class="am-btn am-btn-default" id="dldzjs-select">
+                                                        <input type="checkbox" name="doc-js-btn" > 电力电子技术(4@5) </input>
+                                                </label>
+                                        </div>
+
+                                        <button type="button" class="am-btn am-btn-primary am-btn-block" id="select-complete">完成</button>
+                                </div>
+                        </div>
+                </div>
+                <div data-am-widget="gotop" class="am-gotop am-gotop-fixed" >
+                        <a href="#top" title="回到顶部">
+                                <span class="am-gotop-title">回到顶部</span>
+                                <i class="am-gotop-icon am-icon-chevron-up"></i>
+                        </a>
+                </div>
+
+                <script type="text/javascript">
+                        if (!document.addEventListener) {
+                        // IE6~IE8
+                        document.write('<script src="ieBetter.js"><\/script>');   
+                        }
+                </script>
+
+                <!--[if (gte IE 9)|!(IE)]><!-->
+                <script src="http://cdn.amazeui.org/amazeui/2.4.2/js/jquery.min.js"></script>
+                <!--<![endif]-->
+                <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+                <!--[if lte IE 8 ]>
+                <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+                <script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+                <![endif]-->
+                <script src="http://cdn.amazeui.org/amazeui/2.4.2/js/amazeui.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.2/handlebars.min.js"></script>
+		<script src="data.js" type="text/javascript"></script>
+                <script src="render.js" type="text/javascript"> </script>
+                <script src="control.js" type="text/javascript"> </script>
+        </body>
+</html>
