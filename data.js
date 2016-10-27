@@ -290,7 +290,7 @@ var renderData = { 'optionalClassType' : {
                                                                         {
                                                                         'zryycl' : '自然语言处理(3@7)',
                                                                         'sztxcl' : '数字图像处理(3@7)',
-                                                                        'jsjtxx' : '计算机图形学(3@3)'
+                                                                        // 'jsjtxx' : '计算机图形学(3@3)'
                                                                 }
                                                         }
                                                 }
